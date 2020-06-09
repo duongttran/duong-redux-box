@@ -8,28 +8,29 @@ function App() {
 
   let count = useSelector(state => state.count)
   let dispatch = useDispatch()
-  let boxes = useSelector(state => state.boxes)
+  //let boxes = useSelector(state => state.boxes)
   let [number,setNumber]=useState(1)
 
-  let [bgColor,setBgColor]=useState("red")
+  let [bgColor,setBgColor]=useState("pink")
 
   const increaseNum = () => {
     console.log("hey")
-    dispatch({ type: "Increment", payload:number }) //dispatch send action, and action is object
+    dispatch({ type: "Increment", payload:number, message: "Duong" }) //dispatch send action, and action is object
 
   }
 
-  const renderBox = ()=>{
-    boxes.map(item => {return <ColorBox/>})
-  }
+  // const renderBox = ()=>{
+  //   boxes.map(item => {return <ColorBox/>})
+  // }
 
 const handleTextChange = (e) => {
   if (isNaN(e.target.value)){
     setBgColor(e.target.value)
-  } else {
+  } else if (e.target.value=="") {
+    setNumber(1)
+    setBgColor(e.target.value)
+  }else {
     setNumber(parseInt(e.target.value))
-   
-    
   }
 }
 
@@ -40,7 +41,7 @@ const handleTextChange = (e) => {
       <h2>{count}</h2>
     
       <button onClick={() => increaseNum()}>Increment</button>
-      <button onClick={() => dispatch({ type: "Decrement", payload: number })}>Decrement</button>
+      <button onClick={() => dispatch({ type: "Decrement", payload: number})}>Decrement</button>
       <button onClick={() => dispatch({ type: "Reset" })}>Reset</button>
 
       <input type="text" onChange={handleTextChange} ></input>

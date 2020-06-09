@@ -22,11 +22,9 @@ function reducer(state = initialState, action) {
        state.textColor='yellow'
     }
 
-
   } else if (action.type === 'Decrement') {
     state.count=state.count-action.payload
     //state.count = state.count - action.payload // when we want to -2 
-   
     if (state.count <= 0) {
       state.count = 0
     }
