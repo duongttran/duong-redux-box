@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
-import Children from './components/Children';
+//import Children from './components/Children';
 import ColorBox from './components/ColorBox' 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
     dispatch({ type: "Increment", payload:number }) //dispatch send action, and action is object
 
   }
+
   const renderBox = ()=>{
     boxes.map(item => {return <ColorBox/>})
   }
@@ -39,7 +40,7 @@ const handleTextChange = (e) => {
       <h2>{count}</h2>
     
       <button onClick={() => increaseNum()}>Increment</button>
-      <button onClick={() => dispatch({ type: "Decrement", payload: 12 })}>Decrement</button>
+      <button onClick={() => dispatch({ type: "Decrement", payload: number })}>Decrement</button>
       <button onClick={() => dispatch({ type: "Reset" })}>Reset</button>
 
       <input type="text" onChange={handleTextChange} ></input>
