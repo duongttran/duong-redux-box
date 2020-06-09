@@ -9,7 +9,7 @@ function App() {
   let count = useSelector(state => state.count)
   let dispatch = useDispatch()
   let boxes = useSelector(state => state.boxes)
-  let [number,setNumber]=useState(0)
+  let [number,setNumber]=useState(1)
 
   let [bgColor,setBgColor]=useState("red")
 
